@@ -1,5 +1,5 @@
-name-template: 'uat-v$NEXT_PATCH_VERSION'
-tag-template: 'uat-v$NEXT_PATCH_VERSION'
+name-template: 'v$NEXT_PATCH_VERSION'
+tag-template: 'v$NEXT_PATCH_VERSION'
 
 categories:
   - title: '🚀 Features'
@@ -17,5 +17,3 @@ template: |
   ## Changes
 
   $CHANGES
-
-  [Compare changes](https://github.com/$OWNER/$REPO/compare/$PREVIOUS_TAG...$TAG)
