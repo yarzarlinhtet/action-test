@@ -1,0 +1,29 @@
+name: Build and Deploy by Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment (uat or prod)'
+        required: true
+        default: 'uat'
+      tag:
+        description: 'Git tag version to build and deploy (e.g., v1.2.0)'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code at tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.tag }}
+          fetch-depth: 0
+
+      - name: Log in to Docker Hub
+        run: echo "${{ github.event.inputs.tag }}"
